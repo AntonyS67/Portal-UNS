@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Programs({programs}) {
+function Programs({programs,title}) {
     return (
         <section className="section-programs">
             <div className="titles">
-                <h2>Nuestros Programas</h2>
+                <h2>{title}</h2>
             </div>
             <div className="slideshow">
                 {

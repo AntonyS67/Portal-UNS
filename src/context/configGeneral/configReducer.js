@@ -2,7 +2,7 @@ import {
     GET_SETTINGS
 } from '../../types/index'
 
-export default (state,action) => {
+const ConfigReducer = (state,action) => {
     switch (action.type) {    
         case GET_SETTINGS:
             return {
@@ -13,3 +13,5 @@ export default (state,action) => {
             return state;
     }
 }
+
+export default ConfigReducer;

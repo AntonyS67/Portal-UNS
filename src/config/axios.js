@@ -1,7 +1,8 @@
 import axios from 'axios'
+import {url} from './host';
 
 const clientAxios = axios.create({
-    baseURL:'http://localhost:4000'
+    baseURL: url
 })
 
 export default clientAxios;

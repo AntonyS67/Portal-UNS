@@ -1,9 +1,7 @@
-import React, { useContext } from 'react'
-import ConfigContext from '../context/configGeneral/configContext';
+import React from 'react'
+import {url} from '../config/host'
 
-function Navbar({links}) {
-    const configContext = useContext(ConfigContext);
-    const {settings} = configContext;
+function Navbar({links,settings}) {
 
     const showNav = () => {
         const navbar = document.getElementById('navbar');
@@ -24,10 +22,10 @@ function Navbar({links}) {
         backgroundColor: settings.backgroundmenu,
         color: settings.colormenu
     }
-    
+    if(Object.keys(settings).length === 0) return null;
     return (
         <nav className="navbar" id="navbar" style={styleNav}>
-            <img src="/logo.png" alt="logo"/>
+            <img src={`${url}/api/logo/${settings.logo}`} alt="logo"/>
             <ul id="ul">
                 {
                     links.map(link => (

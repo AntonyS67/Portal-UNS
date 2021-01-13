@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Events({events}) {;
+function Events({events,title}) {;
     if (Object.keys(events).length === 0) return null;
     return (
         <section className="section-events">
             <div className="titles">
-                <h2>Eventos</h2>
+                <h2>{title}</h2>
             </div>
             <div className="section-cards">
                 {

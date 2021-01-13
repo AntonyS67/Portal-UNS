@@ -1,13 +1,7 @@
-import React, { useContext, useEffect } from 'react'
-import ConfigContext from '../context/configGeneral/configContext';
+import React from 'react'
 
-function Footer() {
-    const configContext = useContext(ConfigContext);
-    const {settings,getSettings} = configContext;
-
-    useEffect(() => {
-        getSettings()
-    },[])
+function Footer({settings}) {
+    
 
     const styleFooter = {
         color: settings.colorfooter ? settings.colorfooter :'#fff',

@@ -13,6 +13,13 @@
   ::-webkit-scrollbar {
     display: none;
   }
+  button{
+    outline: none;
+    transition: .8s all;
+  }
+  button:hover{
+    opacity: .9;
+  }
   .navbar{
     display: flex;
     justify-content: space-between;
@@ -79,7 +86,6 @@
     width: 100%;
     max-width: 100%;
     height: 40rem;
-    
   }
   /* Portal */
   .section-portal{
@@ -87,13 +93,110 @@
     border-bottom: 1px solid #000;
     padding-top: .2rem;
   }
-  .titles h2{
+  .titles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
+  }
+  .titles a{
+    position: absolute;
+    right: 0;
+    margin-right: 3.5rem;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .titles h2{
     color: #b8363d;
     text-decoration-line: underline;
     font-size: 2rem;
     text-transform: uppercase;
-    margin-bottom: 4rem;
+  }
+  .titles .fa-plus-circle{
+    color: #b8363d;
+    font-size: 18px;
+  }
+  .slideshow-cart{
+    width: 100%;
+    height: 400px;
+    margin-right: 1rem;
+    border-radius: 10px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+  .slideshow-cart::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(96%,#b8363d));
+    background-image: linear-gradient(-180deg,transparent,#b8363d 150%);
+    border-radius: 10px;
+  }
+  .slideshow-cart .icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    background-color: #b8363d;
+    padding: .4rem;
+    border-radius: 4px;
+  }
+  .slideshow-cart .icon i{
+    font-size: 3rem;
+    color: #333333;
+  }
+  .slideshow-cart .icon p{
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .slideshow-cart .icon img{
+    width: 30px;
+    height: 30px;
+  }
+  .slideshow-cart-title{
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    padding: 1rem;
+    width: 80%;
+    margin-bottom: 1rem;
+    overflow-x: hidden;
+    flex-grow: 1;
+    border-radius: 10px;
+    text-align: justify;
+  }
+  .slideshow-cart-title h3{
+    color: #333333;
+    font-size: 15px;
+    text-transform: capitalize;
+  }
+  .slideshow-cart-control{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1rem 1rem 0;
+    margin-right: 2.5rem;
+  }
+  .text-divider{
+    background-color: #b8363d;
+    width: 36px;
+    height: 4px;
+    margin-top: 12px;
   }
   /* Slide */
   .slideshow{
@@ -105,13 +208,17 @@
     margin-right: 1rem;
     position: relative;
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .slideshow .slideshow-container img{
     border:10px solid rgba(0, 0, 0, .25);
     max-width: 100%;
     width: 700px;
-    height: 400px;
+    height: 320px;
     background-position: center;
+    object-fit: cover;
   }
   .slideshow-image .prev,.slideshow-image .next{
     cursor: pointer;
@@ -152,7 +259,7 @@
   .slideshow-banner{
     background-color: rgba(0, 0, 0, .5);
     font-weight: bold;
-    font-size: 28px;
+    font-size: 20px;
     position: absolute;
     top: 0;
     padding: .5rem;
@@ -175,7 +282,7 @@
   .section-cards{
     display: flex;
     justify-content: space-between;
-    margin: 0 1.5rem;
+    margin: 1.5rem;
   }
   .card{
     background-color: #f2f2f2;
@@ -382,6 +489,10 @@
         font-size: 2rem;
         transition: .8s all;
     }
+    .section-programs .slideshow{
+      display: grid;
+      grid-template-columns: auto auto;
+    }
   }
   @media only screen and (max-width: 768px) {
     .body{
@@ -489,6 +600,20 @@
         max-width: 100%;
         height: auto;
     }
+    .slideshow-cart-control .slick-arrow{
+      padding: 1rem;
+    }
+    .titles{
+      display: block;
+    }
+    .titles a{
+      display: block;
+      margin-top: 1rem;
+      position: relative;
+      text-align: center;
+      justify-content: center;
+      margin-right: 0;
+    }
   }
   
   @media only screen and (max-width: 425px) {
@@ -524,6 +649,20 @@
     .section-card-buttons a{
         font-size: 12px;
     }
+    .slideshow-cart-control .slick-arrow{
+      padding: 1rem;
+    }
+    .section-programs .slideshow{
+      grid-template-columns: auto;
+    }
+  }
+  @media only screen and (max-width: 380px) {
+    .slideshow-cart{
+      padding: 1.5rem;
+    }
+    .slideshow-cart-control .slick-arrow{
+      padding: 1rem;
+    }
   }
   @media only screen and (max-width: 320px) {
     .banner{
@@ -532,10 +671,22 @@
     .card-body img{
         height: 100px;
     }
+    .slideshow-cart{
+      padding: 1rem;
+    }
+    .slideshow-cart-control .slick-arrow{
+      padding: 1rem;
+    }
   }
   @media only screen and (max-width: 280px) {
     .banner{
         height: 250px;
+    }
+    .slideshow-cart-control{
+      padding: 0;
+    }
+    .slideshow-cart-control .slick-arrow{
+      padding: 1rem;
     }
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */

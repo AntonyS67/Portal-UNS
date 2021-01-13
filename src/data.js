@@ -3,7 +3,23 @@ export const banner = {
     title: 'image banner',
     image: 'images/banner.jpg'
 };
-
+export const secciones =[
+    {
+        id:1,
+        title: 'Te lo contamos',
+        show:true
+    },
+    {
+        id:2,
+        title: 'Nuestros Programas',
+        show:true
+    },
+    {
+        id:3,
+        title: 'Nuestros eventos',
+        show:true
+    }
+];
 export const linksNav = [
     {
         id:1,
@@ -38,35 +54,36 @@ export const linksNav = [
 ];
 
 export const portal = [
-    [
-        {
-            id:1,
-            title: 'chica uns',
-            image: 'images/chica.jpg'
-        },
-        {
-            id:2,
-            title: 'egresado',
-            image: 'images/egresado.jpg'
-        },
-    ],
-    [
-        {
-            id:3,
-            title: 'egresado',
-            image: 'images/egresado.jpg'
-        },
-        {
-            id:4,
-            title: 'sixto',
-            image: 'images/sixto.jpg'
-        },
-        {
-            id:5,
-            title: 'chica uns',
-            image: 'images/chica.jpg'
-        },
-    ]
+    {
+        id:1,
+        title: 'chica uns',
+        image: 'images/chica.jpg',
+        category: 'chica'
+    },
+    {
+        id:2,
+        title: 'egresado',
+        image: 'images/egresado.jpg',
+        category: 'egresado'
+    },
+    {
+        id:3,
+        title: 'egresado',
+        image: 'images/egresado.jpg',
+        category: 'egresado'
+    },
+    {
+        id:4,
+        title: 'sixto',
+        image: 'images/sixto.jpg',
+        category: 'sixto'
+    },
+    {
+        id:5,
+        title: 'chica uns',
+        image: 'images/chica.jpg',
+        category: 'chica'
+    },
 ];
 
 export const events = [
@@ -108,6 +125,16 @@ export const programs = [
     },
     {
         id:2,
+        title:'Postgrado',
+        image:'images/postgrado.jpg'
+    },
+    {
+        id:3,
+        title: 'Pregrado',
+        image: 'images/pregrado.jpg'
+    },
+    {
+        id:4,
         title:'Postgrado',
         image:'images/postgrado.jpg'
     }
