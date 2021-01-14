@@ -25,7 +25,6 @@ function Home() {
             <Navbar settings={settings}/>
             <Banner settings={settings}/>
             <Sections settings={settings}/>
-            <Map/>
             <Footer settings={settings}/>
         </>
     )

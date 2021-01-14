@@ -1,4 +1,7 @@
-*{
+  :root{
+    --colormenu: #616162;
+  }
+  *{  
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -50,7 +53,7 @@
     display: block;
     text-decoration: none;
     padding: 1rem;
-    color: #616162;
+    color: var(--colormenu);
     font-size: 13px;
   }
   .navbar ul li:last-child{
@@ -356,7 +359,7 @@
     margin: 1rem 4rem;
   }
   .section-map .img-logo img{
-    height: auto;
+    height: 120px;
     width: 300px;
   }
   .section-map .links{
@@ -472,7 +475,7 @@
         background-color: transparent;
     }
     .navbar ul li:last-child a{
-        color: #616162;
+        color: var(--colormenu) !important;
     }
     .banner{
         z-index: -1;

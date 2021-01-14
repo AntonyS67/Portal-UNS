@@ -25,7 +25,7 @@ $(document).ready(function(){
         slidesToShow:3,
         slideToScroll:1,
         appendArrows: $(this).find('.slideshow-cart-control'),
-        prevArrow: '<button class="prev" style="">&#10094;</button>',
+        prevArrow: '<button class="prev">&#10094;</button>',
         nextArrow: '<button class="next">&#10095;</button>',
         responsive:[
             {

@@ -1,11 +1,12 @@
 import React from 'react'
+import {url} from '../config/host'
 
-function Map() {
+function Map({settings}) {
     return (
         <section className="section-map">
             <div className="">
                 <div className="img-logo">
-                    <img src="logo.png" alt="logo uns"/>
+                    <img src={`${url}/api/logo/${settings.logo}`} alt="logo uns" width="300px" height="150px"/>
                 </div>
                 <div className="links">
                     <ul>

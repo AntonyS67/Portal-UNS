@@ -21,17 +21,22 @@ function Portal() {
             </div>
             <div className="slideshow slideshow-section-portal">
                 {
-                    news.map(image => (
-                        <div key={image._id} className="slideshow-cart" style={{backgroundImage:`url(${url}/api/Noticia/${image.portada})`}}>
-                            <div className="icon">
-                                <p>{image.subtitulo}</p>
-                            </div>
-                            <div className="slideshow-cart-title">
-                                <h3>{image.titulo}</h3>
-                                <div className="text-divider"></div>
-                            </div>
-                        </div>
-                    ))
+                    news.map(notice => {
+                        if(notice.estado === 1) {
+                            return (
+                                <div key={notice._id} className="slideshow-cart" style={{backgroundImage:`url(${url}/api/Noticia/${notice.portada})`}}>
+                                    <div className="icon">
+                                        <p>{notice.subtitulo}</p>
+                                    </div>
+                                    <div className="slideshow-cart-title">
+                                        <h3>{notice.titulo}</h3>
+                                        <div className="text-divider"></div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        return null;
+                    })
                 }
             </div>
             <div className="slideshow-cart-control">

@@ -3,8 +3,10 @@ import Events from './Events'
 import Portal from './Portal'
 import Programs from './Programs'
 import {events, programs} from '../data'
+import Map from './Map'
 
 function Sections({settings}) {
+    const [showMapas,setShowMapas] = useState(true);
     const [showNews,setShowNews] = useState(true);
     const [showPrograms,setShowProgramas] = useState(true);
     const [showEvents,setShowEvents] = useState(true);
@@ -16,6 +18,7 @@ function Sections({settings}) {
                 if(seccion.toLowerCase() === 'noticias') setShowNews(false)
                 if(seccion.toLowerCase() === 'programas') setShowProgramas(false)
                 if(seccion.toLowerCase() === 'eventos') setShowEvents(false)
+                if(seccion.toLowerCase() === 'mapas') setShowMapas(false)
                 return null;
             })
         }
@@ -33,6 +36,10 @@ function Sections({settings}) {
             {
                 showEvents ? (<Events events = {events}/>) : null
             }
+            {
+                showMapas ? (<Map settings={settings}/>) : null
+            }
+            
         </>
     );
     
