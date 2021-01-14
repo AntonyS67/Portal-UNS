@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import ProgramContext from '../context/programs/programContext';
+import {url} from '../config/host';
 
-function Programs({programs,title}) {
+function Programs() {
+    const programContext = useContext(ProgramContext);
+    const {programs,getPrograms} = programContext;
+
+    useEffect(() => {
+        getPrograms();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
+    if(Object.keys(programs).length === 0) return null;
+
     return (
         <section className="section-programs">
             <div className="titles">
-                <h2>{title}</h2>
+                <h2>Programas</h2>
             </div>
             <div className="slideshow">
                 {
                     programs.map(program => (
-                        <div key={program.id} className="slideshow-image">
+                        <div key={program._id} className="slideshow-image">
                             <div className="slideshow-container">
-                                <img src={program.image} alt={program.title}/>
+                                <img src={`${url}/api/Programa/${program.portada}`} alt={program.titulo}/>
                             </div>
                             <div className="slideshow-banner">
-                                <a href="!#">{program.title}</a>
+                                <a href="!#">{program.titulo}</a>
                             </div>
                         </div>
                     ))

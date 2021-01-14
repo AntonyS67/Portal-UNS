@@ -5,7 +5,7 @@ function Events({events,title}) {;
     return (
         <section className="section-events">
             <div className="titles">
-                <h2>{title}</h2>
+                <h2>Eventos</h2>
             </div>
             <div className="section-cards">
                 {

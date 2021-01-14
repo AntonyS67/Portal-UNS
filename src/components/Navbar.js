@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import {url} from '../config/host'
+import MenuContext from '../context/menu/menuContext';
 
-function Navbar({links,settings}) {
+function Navbar({settings}) {
+    const menuContext = useContext(MenuContext);
+    const {menus,getMenus} = menuContext;
 
     const showNav = () => {
         const navbar = document.getElementById('navbar');
@@ -18,9 +21,13 @@ function Navbar({links,settings}) {
         } 
     }
 
+    useEffect(() => {
+        getMenus()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
     const styleNav = {
         backgroundColor: settings.backgroundmenu,
-        color: settings.colormenu
     }
     if(Object.keys(settings).length === 0) return null;
     return (
@@ -28,9 +35,12 @@ function Navbar({links,settings}) {
             <img src={`${url}/api/logo/${settings.logo}`} alt="logo"/>
             <ul id="ul">
                 {
-                    links.map(link => (
-                        <li key={link.id}><a href={link.href}>{link.title}</a></li>
-                    ))
+                    menus.map((link) => {
+                        if(link.status === 1){
+                            return  <li key={link._id}><a href={link.href} style={{color:settings.colormenu}}>{link.title}</a></li>
+                        }
+                        return null;
+                    })
                 }
             </ul>
             <div className="hamburger" onClick={showNav}><i className="fas fa-bars" id="bars"></i></div>  

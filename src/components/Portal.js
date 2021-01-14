@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import {url} from '../config/host'
+import NewContext from '../context/new/newContext';
 
-function Portal({images,title}) {
+function Portal() {
+    const newContext = useContext(NewContext);
+    const {news,getNews} = newContext;
     
+    useEffect(() => {
+        getNews();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
+    if(Object.keys(news).length === 0) return null;
+
     return (
         <section className="section-portal">
             <div className="titles">
-                <h2>{title}</h2>
+                <h2>Noticias</h2>
                 <a href="!#">Ver todas las noticias <i className="fas fa-plus-circle"></i></a>
             </div>
             <div className="slideshow slideshow-section-portal">
                 {
-                    images.map(image => (
+                    news.map(image => (
                         <div key={image._id} className="slideshow-cart" style={{backgroundImage:`url(${url}/api/Noticia/${image.portada})`}}>
                             <div className="icon">
                                 <p>{image.subtitulo}</p>
