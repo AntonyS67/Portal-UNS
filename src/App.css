@@ -10,6 +10,9 @@
     background-color: #f2f2f2;
     font-family: 'Open Sans', sans-serif;
   }
+  .swiper-slide{
+    height: 500px !important;
+  }
   .d-none{
     display: none;
   }
