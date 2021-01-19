@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Events from './Events'
 import Portal from './Portal'
 import Programs from './Programs'
-import {events, programs} from '../data'
 import Map from './Map'
 
 function Sections({settings}) {
@@ -31,10 +30,10 @@ function Sections({settings}) {
                 showNews ? (<Portal/>) : null
             }
             {
-                showPrograms ? (<Programs programs={programs}/>) : null
+                showPrograms ? (<Programs/>) : null
             }
             {
-                showEvents ? (<Events events = {events}/>) : null
+                showEvents ? (<Events/>) : null
             }
             {
                 showMapas ? (<Map settings={settings}/>) : null

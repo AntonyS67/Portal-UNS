@@ -11,32 +11,38 @@ function Programs() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    if(Object.keys(programs).length === 0) return null;
-
     return (
         <section className="section-programs">
             <div className="titles">
                 <h2>Programas</h2>
             </div>
-            <div className="slideshow">
-                {
-                    programs.map(program => {
-                        if(program.estado === 1){
-                            return (
-                                <div key={program._id} className="slideshow-image">
-                                    <div className="slideshow-container">
-                                        <img src={`${url}/api/Programa/${program.portada}`} alt={program.titulo}/>
-                                    </div>
-                                    <div className="slideshow-banner">
-                                        <a href="!#">{program.titulo}</a>
-                                    </div>
-                                </div>
-                            )
+            {
+                Object.keys(programs).length === 0 
+                ?
+                <p>No hay programas</p>
+                :
+                (
+                    <div className="slideshow">
+                        {
+                            programs.map(program => {
+                                if(program.estado === 1){
+                                    return (
+                                        <div key={program._id} className="slideshow-image">
+                                            <div className="slideshow-container">
+                                                <img src={`${url}/api/Programa/${program.portada}`} alt={program.titulo}/>
+                                            </div>
+                                            <div className="slideshow-banner">
+                                                <a href="!#">{program.titulo}</a>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                return null;
+                            })
                         }
-                        return null;
-                    })
-                }
-            </div>
+                    </div>
+                )
+            }
         </section>
     )
 }
